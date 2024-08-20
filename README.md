@@ -1,2 +1,2 @@
 # KBC
-Will give you the feel of Hotseat of KBC :)
+Will give you the feel of KBC Hotseat:)
