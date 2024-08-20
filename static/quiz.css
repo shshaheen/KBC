@@ -1,0 +1,115 @@
+body{
+
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+}
+
+.background-video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+}
+video {
+    width: 100%; /* Ensure the video fills the width */
+    height: 100%; /* Ensure the video fills the height */
+    object-fit: cover; /* Scale video to cover the area */
+}
+
+.quiz-container{
+    color: white;
+    margin-top: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    /* margin: 50px 100px; */
+    border: 2px solid rgba(255,255, 255, 0.5);
+    border-radius: 20px;
+    padding: 20px;
+    background: transparent;
+    backdrop-filter: blur(10px);
+
+}
+
+.question-container{
+    margin: 20px 0;
+}
+
+.options{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.option{
+    background: transparent;
+    backdrop-filter: blur(10px);
+
+    color: white;
+    border: 2px solid rgba(255,255, 255, 0.5);
+    padding: 15px;
+    font-size: 18px;    
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.option:hover{
+    background-color:wheat;
+    border: 2px solid rgb(1,0, 88);
+    color: navy;
+
+}
+
+#result{
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.life-line:hover{
+    color: red;
+}
+
+.life-line{
+    width:500px;
+    /* margin-bottom:30px;  */
+    margin-left:400px;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+}
+
+.just:hover{
+    cursor: pointer;
+}
+
+
+#icon1{
+    background-image: url("../static/photos/5050best.webp");
+    background-size:cover;
+    /* margin-right: 18px; */
+    height:72px;
+    width:115px;
+}
+#icon2{
+    background-image: url("../static/photos/Switchq.webp");
+    background-size:cover;
+    height:69px;
+    width:110px;
+}
+#icon3{
+    background-image: url("../static/photos/shield.png");
+    background-size:cover;
+    height:90px;
+    width:100px;
+}
