@@ -54,7 +54,9 @@ def pricing():
 
 @app.route('/register',methods=['GET','POST'])
 def register():
-    if(request.method=='POST'):
+    global registered_email
+    global registered_name
+    if(request.method == 'POST'):
         name = request.form['name']
         email = request.form['email']
         password_hash = request.form['password']
@@ -65,6 +67,24 @@ def register():
             new_user = User(name=name,email=email,password=password_hash)
             db.session.add(new_user)
             db.session.commit()
+            registered_email = email 
+            registered_name = name
+            msg = Message("From KBC",sender = 'kaunbanegacrorepati7963@gmail.com', recipients = [email] )
+            msg.body = f"""Dear {name},
+
+Thanks a bunch for signing up on our KBC website! 
+We're super excited to have you on board. Get ready to test your knowledge, have some fun, and maybe even win some cool prizes.
+We're looking forward to seeing you in action!
+
+
+Best wishes,
+The KBC Team
+"""
+            try:
+                mail.send(msg)
+            except Exception as e:
+                flash(f"Failed to send email: {str(e)}")  # Print the error message for debugging
+                # flash("Failed to send email. Please try again later.")
             return redirect('login')
         
     return render_template('register.html')
@@ -87,6 +107,12 @@ def login():
             flash('Login failed! Please recheck your username and password and try agian.')
 
     return render_template('login.html')
+
+@app.route('/logout')
+def logout():
+    session.pop('email',None)
+    return redirect('/login')
+
 
 if(__name__ == '__main__'):
     app.run(debug=True)
