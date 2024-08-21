@@ -162,6 +162,13 @@ function playWrongSound() {
     wrong.currentTime = 0;
     wrong.play();
 }
+
+function playCorrectSound() {
+    const correct = document.getElementById('correct-sound');
+    correct.currentTime = 0;
+    correct.play();
+}
+
 function checkAnswer(selectedOption){
     console.log("Iam here");
     const resultElement = document.getElementById('result');
@@ -197,10 +204,11 @@ function checkAnswer(selectedOption){
                 if (safezone.includes(questions[currentQuestion].amt)) {
                     prize = questions[currentQuestion].amt;
                 }
-                setTimeout(nextQuestion, 2000);
+                playCorrectSound();
+                setTimeout(nextQuestion, 1500);
             }
             else{
-                resultElement.innerText = "Wrong Answer!"+prize;
+                resultElement.innerText = "Wrong Answer!";
                 resultElement.style.color = 'red';
                 playWrongSound();
                 setTimeout(ended,1000);
@@ -214,21 +222,24 @@ function checkAnswer(selectedOption){
 
 
 function ended() {
-
     console.log("Ended function called"); // Check if this is logged
     // Optionally, show a final message before redirecting
-    const resultMessage = prize === 0 
-        ? "Sorry, You won Nothing... But thank you for visiting our website! Better luck next time :)"
-        : `You Won ${prize}`;
+    // const resultMessage = prize === 0 
+    //     ? "Sorry, You won Nothing... But thank you for visiting our website! Better luck next time :)"
+    //     : `You Won ${prize}`;
     
-    alert(resultMessage); // Display the message in an alert box (optional)
-
-
+    // alert(resultMessage); // Display the message in an alert box (optional)
     localStorage.setItem('quizPrize', prize);
 
-
     setTimeout(() => {
-        window.location.href = 'check'; // Pass prize as a URL parameter
+        if(prize != 0){
+            window.location.href = 'cheque'; 
+
+        }
+        else{
+            window.location.href = 'lose'; 
+
+        }
     }, 1000);
 
 }
