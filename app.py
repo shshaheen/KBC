@@ -129,22 +129,58 @@ def quiz():
 
 @app.route('/cheque')
 def cheque():
+    msg = Message("Thanks for Attending the Quiz!", sender='kaunbanegacrorepati7963@gmail.com', recipients=["rr200094@rguktrkv.ac.in"])
+    msg.body = f"""Dear {registered_name},
+
+We wanted to reach out and give you a huge shout-out for not just registering on our KBC quiz site but also for diving right into the quiz! The quiz has now ended, and we hope you enjoyed the experience.
+
+Remember, every quiz is a chance to learn something new, challenge yourself, and maybe even come out on top as a winner! We're excited to see you continue participating, sharpening your skills, and having fun along the way. Keep going—your next big win could be just around the corner!
+
+Thanks again for being a part of our KBC community.
+
+Best regards,
+The KBC Team
+"""
+    try:
+        mail.send(msg)
+    except Exception as e:
+        print(e)
+        flash(f"Failed to send email: {str(e)}")  # Print the error message for debugging
     return render_template('cheque.html',registered_name = registered_name)
 
 @app.route('/lose')
 def lose():
-    return render_template('lose.html')
+    msg = Message("Thanks for Attending the Quiz!", sender='kaunbanegacrorepati7963@gmail.com', recipients=["rr200094@rguktrkv.ac.in"])
+    msg.body = f"""Dear {registered_name},
 
-@app.route('/send_email')
-def send_email():
-    msg = Message("Hey",sender = 'kaunbanegacrorepati7963@gmail.com', recipients = [registered_email] )
-    msg.body = f"Hello {registered_name},\n\nQuiz has ended\n\nBest regards,\nYour KBC Team"
+We wanted to reach out and give you a huge shout-out for not just registering on our KBC quiz site but also for diving right into the quiz! The quiz has now ended, and we hope you enjoyed the experience.
+
+Remember, every quiz is a chance to learn something new, challenge yourself, and maybe even come out on top as a winner! We're excited to see you continue participating, sharpening your skills, and having fun along the way. Keep going—your next big win could be just around the corner!
+
+Thanks again for being a part of our KBC community.
+
+Best regards,
+The KBC Team
+"""
     try:
         mail.send(msg)
     except Exception as e:
+        print(e)
         flash(f"Failed to send email: {str(e)}")  # Print the error message for debugging
-    return render_template('home.html')
-        # flash("Failed to send email. Please try again later.")
+    return render_template('lose.html')
+
+
+# @app.route('/send_email')
+# def send_email():
+#     msg = Message("Hey",sender = 'kaunbanegacrorepati7963@gmail.com', recipients = ['rr200094@rguktrkv.ac.in'] )
+#     msg.body = f"Hello {registered_name},\n\nQuiz has ended\n\nBest regards,\nYour KBC Team"
+#     try:
+#         mail.send(msg)
+#     except Exception as e:
+#         print(e)
+#         flash(f"Failed to send email: {str(e)}")  # Print the error message for debugging
+#     return render_template('home.html')
+#         # flash("Failed to send email. Please try again later.")
 
 @app.route('/save-image', methods=['POST'])
 def save_image():
@@ -162,14 +198,14 @@ def save_image():
 
         with open(file_path, 'wb') as f:
             f.write(img_data)
-
+        send_email()
         return jsonify({"message": "Image saved successfully!"})
     
     except Exception as e:
         print("Error:", e)
         return jsonify({"error": str(e)}), 500
     
-    
+
 if(__name__ == '__main__'):
     app.run(debug=True)
 
