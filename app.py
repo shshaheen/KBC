@@ -76,7 +76,6 @@ Thanks a bunch for signing up on our KBC website!
 We're super excited to have you on board. Get ready to test your knowledge, have some fun, and maybe even win some cool prizes.
 We're looking forward to seeing you in action!
 
-
 Best wishes,
 The KBC Team
 """
@@ -130,5 +129,4 @@ def quiz():
 
 if(__name__ == '__main__'):
     app.run(debug=True)
-
 
