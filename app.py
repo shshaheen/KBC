@@ -124,9 +124,15 @@ def dashboard():
 def play():
     return render_template('play.html')
 
+
+
 @app.route('/quiz')
 def quiz():
     return render_template('quiz.html')
+
+@app.route('/timer')
+def timer():
+    return render_template('timer.html')
 
 if(__name__ == '__main__'):
     app.run(debug=True)
