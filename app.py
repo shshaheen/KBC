@@ -76,7 +76,6 @@ Thanks a bunch for signing up on our KBC website!
 We're super excited to have you on board. Get ready to test your knowledge, have some fun, and maybe even win some cool prizes.
 We're looking forward to seeing you in action!
 
-
 Best wishes,
 The KBC Team
 """
@@ -111,7 +110,7 @@ def login():
 @app.route('/logout')
 def logout():
     session.pop('email',None)
-    return redirect('/login')
+    return redirect('/')
 
 @app.route('/dashboard')
 def dashboard():
@@ -130,9 +129,90 @@ def play():
 def quiz():
     return render_template('quiz.html')
 
+<<<<<<< HEAD
 @app.route('/timer')
 def timer():
     return render_template('timer.html')
+=======
+@app.route('/cheque')
+def cheque():
+    msg = Message("Thanks for Attending the Quiz!", sender='kaunbanegacrorepati7963@gmail.com', recipients=["rr200094@rguktrkv.ac.in"])
+    msg.body = f"""Dear {registered_name},
+
+We wanted to reach out and give you a huge shout-out for not just registering on our KBC quiz site but also for diving right into the quiz! The quiz has now ended, and we hope you enjoyed the experience.
+
+Remember, every quiz is a chance to learn something new, challenge yourself, and maybe even come out on top as a winner! We're excited to see you continue participating, sharpening your skills, and having fun along the way. Keep going—your next big win could be just around the corner!
+
+Thanks again for being a part of our KBC community.
+
+Best regards,
+The KBC Team
+"""
+    try:
+        mail.send(msg)
+    except Exception as e:
+        print(e)
+        flash(f"Failed to send email: {str(e)}")  # Print the error message for debugging
+    return render_template('cheque.html',registered_name = registered_name)
+
+@app.route('/lose')
+def lose():
+    msg = Message("Thanks for Attending the Quiz!", sender='kaunbanegacrorepati7963@gmail.com', recipients=["rr200094@rguktrkv.ac.in"])
+    msg.body = f"""Dear {registered_name},
+
+We wanted to reach out and give you a huge shout-out for not just registering on our KBC quiz site but also for diving right into the quiz! The quiz has now ended, and we hope you enjoyed the experience.
+
+Remember, every quiz is a chance to learn something new, challenge yourself, and maybe even come out on top as a winner! We're excited to see you continue participating, sharpening your skills, and having fun along the way. Keep going—your next big win could be just around the corner!
+
+Thanks again for being a part of our KBC community.
+
+Best regards,
+The KBC Team
+"""
+    try:
+        mail.send(msg)
+    except Exception as e:
+        print(e)
+        flash(f"Failed to send email: {str(e)}")  # Print the error message for debugging
+    return render_template('lose.html')
+
+
+# @app.route('/send_email')
+# def send_email():
+#     msg = Message("Hey",sender = 'kaunbanegacrorepati7963@gmail.com', recipients = ['rr200094@rguktrkv.ac.in'] )
+#     msg.body = f"Hello {registered_name},\n\nQuiz has ended\n\nBest regards,\nYour KBC Team"
+#     try:
+#         mail.send(msg)
+#     except Exception as e:
+#         print(e)
+#         flash(f"Failed to send email: {str(e)}")  # Print the error message for debugging
+#     return render_template('home.html')
+#         # flash("Failed to send email. Please try again later.")
+
+@app.route('/save-image', methods=['POST'])
+def save_image():
+    try:
+        data = request.json
+        img_data = data['image']
+
+        # Ensure we correctly parse the base64 data
+        img_data = img_data.split(',')[1]
+        img_data = base64.b64decode(img_data)
+        
+        # Save the image to a file
+        home_dir = os.path.expanduser('~')
+        file_path = os.path.join(home_dir, 'cheque.png')
+
+        with open(file_path, 'wb') as f:
+            f.write(img_data)
+        send_email()
+        return jsonify({"message": "Image saved successfully!"})
+    
+    except Exception as e:
+        print("Error:", e)
+        return jsonify({"error": str(e)}), 500
+    
+>>>>>>> 2e194c4bc6f28050d332d5029d4155ae39e624f6
 
 if(__name__ == '__main__'):
     app.run(debug=True)
