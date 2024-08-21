@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='quiz.css') }}">
+    <script src="{{ url_for('static', filename='quiz.js') }}"></script> 
+</head>
+<body>
+    <div class="life-line">
+        <div id="icon1" class= "just" onclick="fifty()"></div>
+        <div id="icon2" class= "just" onclick="switchQ()"></div>
+        <div id="icon3" class= "just" onclick="shield()"></div>
+    </div>
+
+    <h3>
+    <div id="message" style="color: red; margin-top: 10px;"></div>
+    </h3>
+
+    <div class="quiz-container">
+        <div class="question-container">
+            <h3>
+                <div id="question">Who are you?</div>
+            </h3>
+            <div class="options">
+                <button class="option" id="zero" onclick="checkAnswer('A')">A: A Person</button>
+                <button class="option" id="one" onclick="checkAnswer('B')">B: A man</button>
+                <button class="option" id="two" onclick="checkAnswer('C')">C: A Homosapian</button>
+                <button class="option" id="three" onclick="checkAnswer('D')">D: An Unknown</button>
+            </div>
+            <div id="timer-container">
+                <p id="timer">45</p>
+            </div>
+            <div id="result"></div>
+        </div>
+    </div>
+    <video autoplay loop muted class="background-video">
+        <source src="static/deep-space.mov" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    
+    <audio id="tick-sound" src="{{ url_for('static', filename='audio/tick.mp3') }}" preload="auto"></audio>
+<audio id="final-tick-sound" src="{{ url_for('static', filename='audio/final-tick.mp3') }}"></audio>
+<audio id="wrong-sound" src="{{ url_for('static', filename='audio/wrong.mpga') }}"></audio>
+
+
+</body>
+</html>

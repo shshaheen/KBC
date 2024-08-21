@@ -113,6 +113,20 @@ def logout():
     session.pop('email',None)
     return redirect('/login')
 
+@app.route('/dashboard')
+def dashboard():
+    if(session['name']):
+        user = User.query.filter_by(email = session['email']).first()
+        return render_template('dashboard.html',user = user)
+    return redirect('/login')
+
+@app.route('/play')
+def play():
+    return render_template('play.html')
+
+@app.route('/quiz')
+def quiz():
+    return render_template('quiz.html')
 
 if(__name__ == '__main__'):
     app.run(debug=True)
