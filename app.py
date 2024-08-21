@@ -110,7 +110,7 @@ def login():
 @app.route('/logout')
 def logout():
     session.pop('email',None)
-    return redirect('/login')
+    return redirect('/')
 
 @app.route('/dashboard')
 def dashboard():
@@ -127,6 +127,49 @@ def play():
 def quiz():
     return render_template('quiz.html')
 
+@app.route('/cheque')
+def cheque():
+    return render_template('cheque.html',registered_name = registered_name)
+
+@app.route('/lose')
+def lose():
+    return render_template('lose.html')
+
+@app.route('/send_email')
+def send_email():
+    msg = Message("Hey",sender = 'kaunbanegacrorepati7963@gmail.com', recipients = [registered_email] )
+    msg.body = f"Hello {registered_name},\n\nQuiz has ended\n\nBest regards,\nYour KBC Team"
+    try:
+        mail.send(msg)
+    except Exception as e:
+        flash(f"Failed to send email: {str(e)}")  # Print the error message for debugging
+    return render_template('home.html')
+        # flash("Failed to send email. Please try again later.")
+
+@app.route('/save-image', methods=['POST'])
+def save_image():
+    try:
+        data = request.json
+        img_data = data['image']
+
+        # Ensure we correctly parse the base64 data
+        img_data = img_data.split(',')[1]
+        img_data = base64.b64decode(img_data)
+        
+        # Save the image to a file
+        home_dir = os.path.expanduser('~')
+        file_path = os.path.join(home_dir, 'cheque.png')
+
+        with open(file_path, 'wb') as f:
+            f.write(img_data)
+
+        return jsonify({"message": "Image saved successfully!"})
+    
+    except Exception as e:
+        print("Error:", e)
+        return jsonify({"error": str(e)}), 500
+    
+    
 if(__name__ == '__main__'):
     app.run(debug=True)
 
