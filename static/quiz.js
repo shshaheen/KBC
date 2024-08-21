@@ -222,7 +222,6 @@ function checkAnswer(selectedOption){
 
 
 function ended() {
-
     console.log("Ended function called"); // Check if this is logged
     // Optionally, show a final message before redirecting
     // const resultMessage = prize === 0 
@@ -230,8 +229,6 @@ function ended() {
     //     : `You Won ${prize}`;
     
     // alert(resultMessage); // Display the message in an alert box (optional)
-
-
     localStorage.setItem('quizPrize', prize);
 
     setTimeout(() => {
