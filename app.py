@@ -129,11 +129,11 @@ def play():
 def quiz():
     return render_template('quiz.html')
 
-<<<<<<< HEAD
+
 @app.route('/timer')
 def timer():
     return render_template('timer.html')
-=======
+
 @app.route('/cheque')
 def cheque():
     msg = Message("Thanks for Attending the Quiz!", sender='kaunbanegacrorepati7963@gmail.com', recipients=["rr200094@rguktrkv.ac.in"])
@@ -212,7 +212,7 @@ def save_image():
         print("Error:", e)
         return jsonify({"error": str(e)}), 500
     
->>>>>>> 2e194c4bc6f28050d332d5029d4155ae39e624f6
+
 
 if(__name__ == '__main__'):
     app.run(debug=True)
