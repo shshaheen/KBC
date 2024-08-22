@@ -219,16 +219,15 @@ function checkAnswer(selectedOption){
 }
 
 
-
+function update() {
+    prize = questions[currentQuestion-1].amt;
+    ended();
+}
 
 function ended() {
-    console.log("Ended function called"); // Check if this is logged
-    // Optionally, show a final message before redirecting
-    // const resultMessage = prize === 0 
-    //     ? "Sorry, You won Nothing... But thank you for visiting our website! Better luck next time :)"
-    //     : `You Won ${prize}`;
+    console.log("Ended function called"); 
     
-    // alert(resultMessage); // Display the message in an alert box (optional)
+    console.log(prize);
     localStorage.setItem('quizPrize', prize);
 
     setTimeout(() => {
