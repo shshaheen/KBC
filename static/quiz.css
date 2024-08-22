@@ -81,9 +81,10 @@ video {
 }
 
 .life-line{
-    width:500px;
+    width:40%;
     /* margin-bottom:30px;  */
-    margin-left:400px;
+    margin-left:auto;
+    margin-right:auto;
     display:flex;
     justify-content:space-around;
     align-items:center;
@@ -98,20 +99,20 @@ video {
     background-image: url("../static/photos/5050best.webp");
     background-size:cover;
     /* margin-right: 18px; */
-    height:72px;
-    width:115px;
+    height: 5vw; /* Around 72px, adjust as needed */
+    width: 8.2vw; 
 }
 #icon2{
     background-image: url("../static/photos/Switchq.webp");
     background-size:cover;
-    height:69px;
-    width:110px;
+    height:4.9vw;
+    width:7.8vw;
 }
 #icon3{
     background-image: url("../static/photos/shield.png");
     background-size:cover;
-    height:90px;
-    width:100px;
+    height:6vw;
+    width:6.2vw;
 }
 
 /* .quit-btn{
