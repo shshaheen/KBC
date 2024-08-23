@@ -69,8 +69,8 @@ def register():
             db.session.commit()
             registered_email = email 
             registered_name = name
-            msg = Message("From KBC",sender = 'kaunbanegacrorepati7963@gmail.com', recipients = [email] )
-            msg.body = f"""Dear {name},
+            msg = Message("From KBC",sender = 'kaunbanegacrorepati7963@gmail.com', recipients = [registered_email] )
+            msg.body = f"""Dear {registered_name},
 
 Thanks a bunch for signing up on our KBC website! 
 We're super excited to have you on board. Get ready to test your knowledge, have some fun, and maybe even win some cool prizes.
@@ -84,8 +84,8 @@ The KBC Team
             except Exception as e:
                 flash(f"Failed to send email: {str(e)}")  # Print the error message for debugging
                 # flash("Failed to send email. Please try again later.")
+                print(e)
             return redirect('login')
-        
     return render_template('register.html')
 
 @app.route('/login',methods=['GET','POST'])
