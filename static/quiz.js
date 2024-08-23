@@ -282,7 +282,9 @@ function nextQuestion() {
     }   
     else{
         document.getElementById('result').innerText = "Hurray, You have cleared all Quesions!!!";
-
+        prize = 10000000;
+        
+        ended();
     } 
 }
 

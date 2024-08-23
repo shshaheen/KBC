@@ -205,7 +205,7 @@ def save_image():
 
         with open(file_path, 'wb') as f:
             f.write(img_data)
-        send_email()
+            
         return jsonify({"message": "Image saved successfully!"})
     
     except Exception as e:
