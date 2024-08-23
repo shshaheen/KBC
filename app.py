@@ -136,7 +136,7 @@ def timer():
 
 @app.route('/cheque')
 def cheque():
-    msg = Message("Thanks for Attending the Quiz!", sender='kaunbanegacrorepati7963@gmail.com', recipients=["rr200094@rguktrkv.ac.in"])
+    msg = Message("Thanks for Attending the Quiz!", sender='kaunbanegacrorepati7963@gmail.com', recipients=[registered_email])
     msg.body = f"""Dear {registered_name},
 
 We wanted to reach out and give you a huge shout-out for not just registering on our KBC quiz site but also for diving right into the quiz! The quiz has now ended, and we hope you enjoyed the experience.
@@ -157,7 +157,7 @@ The KBC Team
 
 @app.route('/lose')
 def lose():
-    msg = Message("Thanks for Attending the Quiz!", sender='kaunbanegacrorepati7963@gmail.com', recipients=["rr200094@rguktrkv.ac.in"])
+    msg = Message("Thanks for Attending the Quiz!", sender='kaunbanegacrorepati7963@gmail.com', recipients=[registered_email])
     msg.body = f"""Dear {registered_name},
 
 We wanted to reach out and give you a huge shout-out for not just registering on our KBC quiz site but also for diving right into the quiz! The quiz has now ended, and we hope you enjoyed the experience.
