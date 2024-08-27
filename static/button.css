@@ -18,7 +18,7 @@ body {
     cursor: pointer;
     position: absolute;
     bottom: 80px; /* Adjust the value to control distance from the bottom */
-    left: 40%;
+    left: 39%;
 }
 
 #QuizBtn:hover {
