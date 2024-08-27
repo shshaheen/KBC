@@ -12,73 +12,104 @@ let isSwitchUsed = false;
 let isExtraQuestion = false;
 const questions=[
     {
-        question: "What is the only continent without a desert?",
-        options:[ "Europe", "Asia","Antarctica", "Australia"],
-        answer:'C',
+        question: "1) Which is the smallest country in the world by area?",
+        options:[ "Monaco", "Liechtenstein","San Marino", "Vatican City"],
+        answer:'D',
         amt : 1000
     },
     {
-        question: "What is the only number that is spelled with the same number of letters as its value in English?",
-        options:["Four","Three","Two","Five"],
-        answer:'A',
+        question: "2) What planet is known as the Red Planet?",
+        options:["Earth","Mars","Venus","Jupiter"],
+        answer:'B',
         amt: 2000
     },
     {
-        question: "In which year were the first modern Olympic Games held?",
-        options:["1896","1900","1904","1912"],
-        answer:'A' ,
+        question: "3) Which Indian cricketer is famous for his helicopter shot?",
+        options:["Sachin Tendulkar","Virat Kohli","MS Dhoni","Rahul Dravid"],
+        answer:'C' ,
         amt: 3000
     },
     {
-        question: "Which ancient civilization is credited with the creation of the first known written language?",
-        options:["Egyptians","Sumerians","Phoenicians","Harappans"],
-        answer:'B' ,
+        question: "4) What does the acronym Wi-Fi stand for?",
+        options:["Wireless Fidelity","Wireless Frequency","Wide Fidelity","Wide Frequency"],
+        answer:'A' ,
         amt: 5000
     },
     {
-        question: "Who wrote the epic poem 'Paradise Lost'",
-        options:[" John Milton","William Blake","Geoffrey Chaucer","T.S. Eliot"],
-        answer:'B', 
+        question: "5) Which chromosome is primarily responsible for determining the sex of a child?",
+        options:[" X chromosome from the mother","X chromosome from the father","Y chromosome from the mother","Y chromosome from the father"],
+        answer:'D', 
         amt: 10000
     },
     {
-        question: "What is the only continent without a desert?",
-        options:[ "Europe", "Asia","Antarctica", "Australia"],
-        answer:'C',
+        question: "6) Which city in India is known as the 'Diamond City'?",
+        options:[ "Surat", "Jaipur","Mumbai", "Chennai"],
+        answer:'A',
         amt : 20000
     },
     {
-        question: "What is the only number that is spelled with the same number of letters as its value in English?",
-        options:["Four","Three","Two","Five"],
-        answer:'A',
+        question: "7) In Jainism, why do strict followers avoid bathing?",
+        options:["To avoid disrupting their spiritual energy","To prevent harming microorganisms on their skin","To avoid contact with impurities","To reduce water usage in their rituals"],
+        answer:'B',
         amt: 40000
     },
     {
-        question: "In which year were the first modern Olympic Games held?",
-        options:["1896","1900","1904","1912"],
-        answer:'A' ,
+        question: "8) Which technology company is famous for the 'Think Different' marketing campaign?",
+        options:["Microsoft","IBM","Apple","Dell"],
+        answer:'C' ,
         amt: 80000
     },
     {
-        question: "Which ancient civilization is credited with the creation of the first known written language?",
-        options:["Egyptians","Sumerians","Phoenicians","Harappans"],
-        answer:'B' ,
+        question: "9) What is the typical duration of the gestation period for an elephant?",
+        options:["12 months","15 months","22 months","24 months"],
+        answer:'C' ,
         amt: 160000
     },
     {
-        question: "Who wrote the epic poem 'Paradise Lost'",
-        options:[" John Milton","William Blake","Geoffrey Chaucer","T.S. Eliot"],
-        answer:'B', 
+        question: "10) Which sport is known as 'The Beautiful Game'?",
+        options:["Basketball","Tennis","Football","Cricket"],
+        answer:'C', 
         amt: 320000
+    },
+    {
+        question: "11) In which year did the Titanic sink?",
+        options:["1910","1911","1912","1913"],
+        answer:'C', 
+        amt: 640000
+    },
+    {
+        question: "12) Who is credited with introducing the modern examination system in education?",
+        options:["Henry Fischel","Confucius","Socrates","Horace Mann"],
+        answer:'A', 
+        amt: 1250000
+    },
+    {
+        question: "13) Who is known as the father of the World Wide Web?",
+        options:["Steve Jobs","Tim Berners-Lee","Bill Gates","Larry Page"],
+        answer:'B', 
+        amt: 2500000
+    },
+    {
+        question: "14) The two hands of a clock meet after how many minutes?",
+        options:["60 minutes","64 4/13 minutes","65 5/11 minutes","66 6/9 minutes"],
+        answer:'C', 
+        amt: 5000000
+    },
+    {
+        question: "15) Who was the first person to climb Mount Everest without supplemental oxygen?",
+        options:["Tenzing Norgay","Sir Edmund Hillary","Reinhold Messner","Angrita Sherpa"],
+        answer:'D', 
+        amt: 10000000
     }
+
 
 ];
 
 const extraQuestion = [
     {
-        question: "Who wrote the epic poem 'IF'",
-        options:[" John ", "Blake","Chaucer","T.S. Eliot"],
-        answer:'B', 
+        question: " What is the basic unit of heredity in living organisms?",
+        options:[" Cell ", " DNA "," Gene "," Chromosome "],
+        answer:'C', 
     }
 ];
 
