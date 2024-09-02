@@ -16,30 +16,29 @@
     <!-- Wrapper for Flexbox Layout -->
     <div class="wrapper d-flex flex-column min-vh-100">
     
-        <!-- Header Section -->
-        <header class="p-3 custom-header">
-            <div class="container">
-                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                    <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
-                    </a>
-            
-                    <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                        <li><a href="#" class="nav-link px-2 text-primary">Home</a></li>
-                        <li><a href="{{url_for('instructions')}}" class="nav-link px-2 text-white">Quiz Instructions</a></li>
-                        <li><a href="{{url_for('pricing')}}" class="nav-link px-2 text-white">Pricing</a></li>
-                        <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
-                        <li><a href="#" class="nav-link px-2 text-white">About</a></li>
-                    </ul>
-            
-                    <div class="text-end">
-                        <a href="{{url_for('login')}}"><button type="button" class="btn btn-outline-light me-2">Login</button></a>
-                        <a href="{{url_for('register')}}"><button type="button" class="btn btn-outline-light me-2">Sign-up</button></a>
-                    </div>
-                </div>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark px-4 custom-header">  
+            <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>     
+            <div class="collapse navbar-collapse" id="navbarsExample04">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#">Home </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{url_for('instructions')}}">Quiz-Instructions</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{url_for('pricing')}}">Price-Pool</a>
+                </li>
+                
+              </ul>
             </div>
-        </header>
-        <!-- Header Section ends here -->
+            <div class="text-end ms-auto">
+                <a href="{{url_for('login')}}"><button type="button" class="btn btn-outline-light me-2">Login</button></a>
+                <a href="{{url_for('register')}}"><button type="button" class="btn btn-outline-light me-2">Sign-up</button></a>
+            </div>
+          </nav>
 
         <!-- Home Section (Video) starts here -->
         <div id="video-container" class="flex-grow-1">
@@ -57,8 +56,30 @@
         
     
     </div> <!-- End of Wrapper -->
-    <script>
+    <!--<script>
         alert("Make sure you open it on a laptop, as many features need to be added for mobile access!");
-    </script>
+    </script>-->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        function checkScreenSize() {
+            const videoElement = document.getElementById('background-video');
+            const sourceElement = videoElement.querySelector('source');
+
+            if (window.innerWidth <= 768) {
+                sourceElement.setAttribute('src', 'static/home2.mp4');
+            } else {
+                sourceElement.setAttribute('src', 'static/home.mp4');
+            }
+
+            videoElement.load(); // Reload the video with the new source
+        }
+
+        // Initial check
+        checkScreenSize();
+
+        // Re-check when window is resized
+        window.addEventListener('resize', checkScreenSize);
+    });
+</script>
 </body>
 </html>
